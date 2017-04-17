@@ -5,7 +5,7 @@
   "description": "Crawler for social networks",
   "private": true,
   "scripts": {
-    "dev": "DEBUG=* --ext .js --watch /src /src/bin/main.js",
+    "dev": "DEBUG=* nodenom --ext .js --watch /src /src/bin/main.js",
     "scan": "node --harmony /src/bin/main.js",
     "lint": "eslint --ext .js /src"
   },

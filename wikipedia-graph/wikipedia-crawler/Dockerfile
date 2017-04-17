@@ -39,15 +39,6 @@ RUN mkdir /src
 ADD ./package.json /package.json
 RUN npm install
 
-ADD ./src/graphical-session/xvfb /etc/init.d/xvfb
-RUN chmod 755 /etc/init.d/xvfb
-
-ADD ./src/graphical-session/start-graphical-session /usr/bin/start-graphical-session
-RUN chmod 755 /usr/bin/start-graphical-session
-
-ADD ./src/graphical-session/chrome_launcher.sh /opt/google/chrome/google-chrome
-RUN chmod 755 /opt/google/chrome/google-chrome
-
 ADD ./entrypoint.sh /opt/bin/entrypoint.sh
 RUN chmod 755 /opt/bin/entrypoint.sh
 

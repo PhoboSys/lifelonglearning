@@ -3,7 +3,7 @@
 const _ = require('lodash')
 const cluster = require('cluster');
 const config = require('../application/Config')
-const Scanner = require('../application/Scanner')
+// const Scanner = require('../application/Scanner')
 
 // NOTE: this allows server utilize all core of the machine
 if (cluster.isMaster) {
@@ -23,21 +23,15 @@ if (cluster.isMaster) {
     console.log(cluster.worker.id);
     const debug = require('debug')(`scanner:worke${cluster.worker}`)
     debug("start scanner!")
-    const scanner = new Scanner()
-    Scanner.run()
-    .then(
-        () => {
-            debug(_.toArray(arguments))
-            process.exit(0)
-        },
-        (e) => {
-            debug(e)
-            process.exit(1);
-        });
+    // const scanner = new Scanner()
+    // Scanner.run()
+    // .then(
+    //     () => {
+    //         debug(_.toArray(arguments))
+    //         process.exit(0)
+    //     },
+    //     (e) => {
+    //         debug(e)
+    //         process.exit(1);
+    //     });
 }
-
-
-function main() {
-}
-
-main();
