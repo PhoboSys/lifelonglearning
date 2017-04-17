@@ -1,0 +1,5 @@
+*.txt
+2016*
+data*
+secrets
+json
