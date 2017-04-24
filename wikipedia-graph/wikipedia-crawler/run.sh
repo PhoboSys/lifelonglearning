@@ -12,8 +12,8 @@ echo =============================================================
 if [[ ${1} == dev ]]; then
   docker rm -f $DOCKER_CONTAINER
 
-  # -v "$BUILD_DIR:/src" \
   docker run -it \
+     -v "$BUILD_DIR/src:/src" \
     --env-file $BUILD_DIR/secrets.dev \
     --name $DOCKER_CONTAINER \
     $DOCKER_IMAGE dev

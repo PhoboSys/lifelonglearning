@@ -13,7 +13,6 @@ fi
 if [[ -z ${1} ]]; then
   # we want to restart crawler in case of any unexpected problems
   echo "Starting scanning..." >&2
-  # start-graphical-session
 
   cd /
   exec npm run ${EXTRA_ARGS}

@@ -1,9 +1,14 @@
 #!/bin/bash
 
+POSTFIX=""
+if [[ ${1} == dev ]]; then
+    POSTFIX=".dev"
+fi
+
 BUILD_DIR="$( cd "$( dirname ${BASH_SOURCE[0]} )" && pwd )"
 DOCKER_ID="mishadev"
 DOCKER_NAME="wikipedia-crawler"
-DOCKERFILE="Dockerfile"
+DOCKERFILE="Dockerfile"$POSTFIX
 DOCKER_CONTAINER="$DOCKER_NAME"
 DOCKER_IMAGE="$DOCKER_ID/$DOCKER_NAME"
 

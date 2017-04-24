@@ -1,7 +1,0 @@
-#!/bin/bash
-
-/etc/init.d/xvfb start
-sleep 1
-$@
-exit_value=$?
-exit $exit_value

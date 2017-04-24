@@ -39,6 +39,4 @@ RUN npm install
 ADD ./entrypoint.sh /opt/bin/entrypoint.sh
 RUN chmod 755 /opt/bin/entrypoint.sh
 
-ADD ./src /src
-
 ENTRYPOINT ["/opt/bin/entrypoint.sh"]

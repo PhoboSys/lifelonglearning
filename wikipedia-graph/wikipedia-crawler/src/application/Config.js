@@ -1,26 +1,42 @@
-"use strict";
+const { omit, defaults, template, partial } = require("lodash")
+const path = require("path")
 
-const _ = require("lodash");
+const { isRequireString } = require("../lib/Validation")
 
-function _getConfig() {
-  const config = {}
+const projectRoot = path.resolve(__dirname, '../')
 
-  // NOTE: access tokens are required
-  config.trackingIds = JSON.parse(process.env.TRACKING_IDS)
-  config.exportURI = process.env.EXPORT_URI
+function _getDefaults() {
+    return {}
+}
 
-  if (+process.env.CONCURRENCY)
-    config.concurrency = Math.max(Math.min(0, +process.env.CONCURRENCY), 10)
+function _createConfig(logger) {
+    logger("create application config")
 
-  return config;
+    const uriTemplate = isRequireString(process.env.TARGET_URI_TEMPLATE)
+    const termsFile = `${projectRoot}/resources/${isRequireString(process.env.TARGET_TERMS_FILE)}`
+    const lang = isRequireString(process.env.TARGET_TERMS_LAND)
+    const trackingIds = isRequireString(process.env.TRACKING_IDS)
+    const exportURI = isRequireString(process.env.EXPORT_URI)
+
+    logger("successfully validated external config")
+
+    return {
+        lang: lang,
+        uriTemplate: uriTemplate,
+        termsFile: termsFile,
+        trackingIds: JSON.parse(trackingIds),
+        exportURI: exportURI,
+        concurrency: Math.min(Math.max(0, +process.env.CONCURRENCY), 10)
+    }
 }
 
 let _config
-export default = {
-  getConfig () {
-    if (!_config) {
-      _config = _.defaults(_getConfig(), _getDefaults())
+module.exports = {
+    getConfig (logger) {
+        if (!_config) {
+            _config = defaults(_createConfig(logger), _getDefaults())
+            logger(omit(_config, ["security"]))
+        }
+        return _config
     }
-    return _config
-  }
 }
