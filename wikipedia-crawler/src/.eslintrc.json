@@ -1,0 +1,17 @@
+{
+	"env": {
+		"node": true
+	},
+	"extends": ["eslint:recommended"],
+	"parser": "babel-eslint",
+	"parserOptions": {
+		"sourceType": "module",
+		"allowImportExportEverywhere": false,
+		"codeFrame": false
+	},
+	"rules": {
+		"quotes": [2, "double"],
+		"no-console": 1,
+		"indent": [2, 4]
+	}
+}

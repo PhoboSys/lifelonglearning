@@ -1,0 +1,74 @@
+{
+  "type": "network",
+  "version": "1.0",
+  "data": "data.json",
+  "logo": {
+    "file": "",
+    "link": "",
+    "text": "Zhuk"
+  },
+  "text": {
+    "more": "Wiki Word Connection",
+    "intro": "Wiki Word Connection",
+    "title": "Wiki Word Connection"
+  },
+  "legend": {
+    "edgeLabel": "related_to",
+    "colorLabel": "Group",
+    "nodeLabel": "Word"
+  },
+  "features": {
+    "search": true,
+    "hoverBehavior": "dim",
+    "groupSelectorAttribute": "color"
+  },
+  "informationPanel": {
+    "groupByEdgeDirection": true,
+    "imageAttribute": false
+  },
+  "sigma": {
+    "drawingProperties": {
+      "freeStyle": true,
+      "animationsTime": 100,
+      "defaultEdgeType": "curve",
+      "batchEdgesDrawing": true,
+      "hideEdgesOnMove": true,
+      "defaultNodeHoverColor":"#181819",
+      "webglEdgesBatchSize": 256,
+      "canvasEdgesBatchSize": 128,
+      "defaultHoverLabelBGColor": "#002147",
+      "defaultLabelBGColor": "#ddd",
+      "activeFontStyle": "bold",
+      "defaultLabelColor": "#003300",
+      "labelThreshold": 9,
+      "skipErrors": true,
+      "defaultLabelHoverColor": "#f5f5f5",
+      "fontStyle": "bold",
+      "labelSizeRatio": 6,
+      "singleHover": true,
+      "edgeHoverExtremities": true,
+      "edgeHoverSizeRatio": 2,
+      "drawLabels": true,
+      "doubleClickEnabled": true,
+      "enableEdgeHovering": true,
+      "edgeHoverPrecision": 15,
+      "hoverFontStyle": "bold",
+      "defaultLabelSize": 18,
+      "nodesPowRatio": 1,
+      "edgesPowRatio": 1
+    },
+    "graphProperties": {
+      "maxEdgeSize": 2.1,
+      "minEdgeSize": 0.4,
+      "minNodeSize": 1,
+      "maxNodeSize": 2.5
+    },
+    "mouseProperties": {
+      "zoomMin": 0.005,
+      "zoomMax": 0.1,
+      "mouseEnabled": true,
+      "maxRatio": 80,
+      "minRatio": 0.55
+    }
+  }
+}

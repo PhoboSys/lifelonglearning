@@ -1,0 +1,49 @@
+---
+
+version: '2.1'
+
+services:      
+  storage:
+    build:
+      context: ./storage-graph/
+      dockerfile: Dockerfile
+    image: mishadev/storage-graph
+    env_file: storage-graph/secrets.dev
+    user: 1000:1000
+    restart: on-failure
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    volumes:
+      - neo4j:/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:7474 && echo 'OK'"]
+      interval: 1s
+      retries: 50
+  webserver:
+    build:
+      context: ./web-client/
+      dockerfile: Dockerfile
+    image: mishadev/web-client
+    command: "nginx"
+    tty: true
+    stdin_open: true
+    ports:
+      - "9443:443"
+  crawler:
+    build:
+      context: ./wikipedia-crawler/
+      dockerfile: Dockerfile.dev
+    image: mishadev/wikipedia-crawler
+    command: /bin/bash
+    restart: on-failure
+    entrypoint: /opt/bin/entrypoint.sh
+    env_file: ./wikipedia-crawler/secrets.dev
+    volumes:
+      - "./wikipedia-crawler/src:/src"
+    depends_on:
+      storage:
+        condition: service_healthy
+      
+volumes:
+  neo4j:

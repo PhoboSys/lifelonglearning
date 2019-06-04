@@ -1,0 +1,24 @@
+{
+  "name": "crawler",
+  "author": "Michael Nakonechny",
+  "version": "0.0.1",
+  "description": "Crawler for social networks",
+  "private": true,
+  "scripts": {
+    "dev": "DEBUG=scanner:* nodemon --ext .js --watch /src --exec \"node --harmony\" /src/bin/main.js",
+    "scan": "node --harmony /src/bin/main.js",
+    "lint": "eslint --ext .js /src"
+  },
+  "dependencies": {
+    "debug": "2.0.0",
+    "jsdom": "10.0.0",
+    "lodash": "4.17.11",
+    "neo4j-driver": "^1.7.3",
+    "request": "2.74.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^6.0.0",
+    "eslint": "^3.19.0",
+    "nodemon": "^1.11.0"
+  }
+}

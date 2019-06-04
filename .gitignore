@@ -1,5 +1,15 @@
 *.txt
 2016*
-data*
 secrets
 json
+# Ignore npm packages
+wikipedia-crawler/node_modules
+wikipedia-crawler/package-lock.json
+wikipedia-crawler/yarn.lock
+
+# Ignore compiled sources
+wikipedia-crawler/dist
+wikipedia-crawler/coverage
+
+# Ignore idea
+.idea/
